@@ -1,0 +1,10 @@
+# Text editors and IDEs
+
+/nbproject/private/
+/.idea
+
+
+# Project specific files
+
+/node_modules
+/build

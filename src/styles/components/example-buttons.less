@@ -1,0 +1,86 @@
+// Buttons
+
+// Base styles for all types (a, button, input)
+
+a.button,
+span.button,
+input[type="submit"].button,
+button.button {
+  height: 40px;
+  padding-left: 20px;
+  padding-right: 20px;
+  border-radius: @border-radius-base;
+  white-space: nowrap;
+  text-align: center;
+  font-size: @font-size-main;
+  font-weight: @font-weight-regular;
+  border: 1px transparent solid;
+  vertical-align: middle;
+  background-color: @color-light-grey;
+
+  .m-transition(~"color @{transition-easing}, border @{transition-easing}, background-color @{transition-easing}");
+}
+
+a.button,
+span.button {
+  position: relative;
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 38px;
+
+  &:hover {
+    color: @color-base;
+    text-decoration: none;
+  }
+}
+
+input[type="submit"].button,
+button.button {
+  font-weight: normal;
+  border: none;
+  background-color: @color-grey;
+}
+
+
+// States
+
+a.button.is-disabled,
+span.button.is-disabled,
+input[type="submit"][disabled],
+button[disabled] {
+  cursor: not-allowed;
+  color: fade(@color-white, 50%) !important;
+  background-color: @color-light-grey !important;
+}
+
+
+// Modifiers
+
+
+  // Primary
+
+  .button.mod-black,
+  input[type="submit"].button.mod-black {
+    color: @color-white;
+    background-color: @color-black;
+
+    &:hover {
+      color: @color-white;
+      background-color: lighten(@color-black, 10%);
+    }
+  }
+
+
+// Media Queries
+
+@media @print {
+
+  .button,
+  input[type="submit"],
+  button {
+    border: 1px solid;
+  }
+
+}

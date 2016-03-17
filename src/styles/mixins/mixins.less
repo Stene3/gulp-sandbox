@@ -1,0 +1,255 @@
+// clearfix
+
+.m-clearfix() {
+  &:before,
+  &:after {
+    display: table;
+    content: " ";
+  }
+  &:after {
+    clear: both;
+  }
+}
+
+
+// Resizable textarea
+
+.m-resizable(@direction: both) {
+  // Options: horizontal, vertical, both
+  resize: @direction;
+  overflow: auto; // Safari fix
+}
+
+
+// Sizing helpers
+
+.m-size(@width, @height) {
+  width: @width;
+  height: @height;
+}
+
+.m-square(@size) {
+  .m-size(@size; @size);
+}
+
+.m-circle(@size) {
+  .m-size(@size, @size);
+  border-radius: @size;
+}
+
+
+// Text overflow
+
+.m-text-overflow() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+
+// Opacity
+
+.m-opacity(@opacity) {
+  @opacity-float: (@opacity / 100);
+  opacity: @opacity-float;
+  filter: ~"alpha(opacity=@{opacity})"; // IE8 filter
+}
+
+
+// Border radius
+
+.m-border-top-radius(@radius) {
+  border-top-right-radius: @radius;
+  border-top-left-radius: @radius;
+}
+
+.m-border-right-radius(@radius) {
+  border-bottom-right-radius: @radius;
+  border-top-right-radius: @radius;
+}
+
+.m-border-bottom-radius(@radius) {
+  border-bottom-right-radius: @radius;
+  border-bottom-left-radius: @radius;
+}
+
+.m-border-left-radius(@radius) {
+  border-bottom-left-radius: @radius;
+  border-top-left-radius: @radius;
+}
+
+
+// Gradients
+
+.m-gradient(@startColor: #eee, @endColor: #fff) {
+  background-color: @startColor;
+  background: -webkit-gradient(linear, left top, left bottom, from(@startColor), to(@endColor));
+  background: -webkit-linear-gradient(top, @startColor, @endColor);
+  background: -moz-linear-gradient(top, @startColor, @endColor);
+  background: -ms-linear-gradient(top, @startColor, @endColor);
+  background: -o-linear-gradient(top, @startColor, @endColor);
+}
+
+.m-horizontal-gradient(@startColor: #eee, @endColor: white) {
+  background-color: @startColor;
+  background-image: -webkit-gradient(linear, left top, right top, from(@startColor), to(@endColor));
+  background-image: -webkit-linear-gradient(left, @startColor, @endColor);
+  background-image: -moz-linear-gradient(left, @startColor, @endColor);
+  background-image: -ms-linear-gradient(left, @startColor, @endColor);
+  background-image: -o-linear-gradient(left, @startColor, @endColor);
+}
+
+
+// Transitions
+
+.m-transition(@transition) {
+  transition: @transition;
+  -webkit-transition: @transition;
+}
+
+.m-transition-property(@transition-property) {
+  transition-property: @transition-property;
+  -webkit-transition-property: @transition-property;
+}
+
+.m-transition-delay(@transition-delay) {
+  transition-delay: @transition-delay;
+  -webkit-transition-delay: @transition-delay;
+}
+
+.m-transition-duration(@transition-duration) {
+  transition-duration: @transition-duration;
+  -webkit-transition-duration: @transition-duration;
+}
+
+.m-transition-transform(@transition) {
+  transition: transform @transition;
+  -moz-transition: -moz-transform @transition;
+  -webkit-transition: -webkit-transform @transition;
+  -o-transition: -o-transform @transition;
+}
+
+
+// Animations
+
+.m-animation(@animation) {
+  animation: @animation;
+  -webkit-animation: @animation;
+}
+
+.m-animation-name(@name) {
+  animation-name: @name;
+  -webkit-animation-name: @name;
+}
+
+.m-animation-duration(@duration) {
+  animation-duration: @duration;
+  -webkit-animation-duration: @duration;
+}
+
+.m-animation-timing-function(@timing-function) {
+  animation-timing-function: @timing-function;
+  -webkit-animation-timing-function: @timing-function;
+}
+
+.m-animation-delay(@delay) {
+  animation-delay: @delay;
+  -webkit-animation-delay: @delay;
+}
+
+.m-animation-iteration-count(@iteration-count) {
+  animation-iteration-count: @iteration-count;
+  -webkit-animation-iteration-count: @iteration-count;
+}
+
+.m-animation-direction(@direction) {
+  animation-direction: @direction;
+  -webkit-animation-direction: @direction;
+}
+
+.m-animation-play-state(@state) {
+  animation-play-state: @state;
+  -webkit-animation-play-state: @state;
+}
+
+
+// Transformations
+
+.m-rotate(@degrees) {
+  transform: rotate(@degrees);
+  -webkit-transform: rotate(@degrees);
+  -ms-transform: rotate(@degrees); // IE9 only
+}
+
+.m-scale(@ratio; @ratio-y...) {
+  transform: scale(@ratio, @ratio-y);
+  -webkit-transform: scale(@ratio, @ratio-y);
+  -ms-transform: scale(@ratio, @ratio-y); // IE9 only
+}
+
+.m-translate(@x; @y) {
+  transform: translate(@x, @y);
+  -webkit-transform: translate(@x, @y);
+  -ms-transform: translate(@x, @y); // IE9 only
+}
+
+.m-skew(@x; @y) {
+  transform: skew(@x, @y);
+  -webkit-transform: skew(@x, @y);
+  -ms-transform: skewX(@x) skewY(@y); // IE9+
+}
+
+.m-translate3d(@x; @y; @z) {
+  transform: translate3d(@x, @y, @z);
+  -webkit-transform: translate3d(@x, @y, @z);
+}
+
+.m-rotateX(@degrees) {
+  transform: rotateX(@degrees);
+  -webkit-transform: rotateX(@degrees);
+  -ms-transform: rotateX(@degrees); // IE9 only
+}
+
+.m-rotateY(@degrees) {
+  transform: rotateY(@degrees);
+  -webkit-transform: rotateY(@degrees);
+  -ms-transform: rotateY(@degrees); // IE9 only
+}
+
+.m-perspective(@perspective) {
+  perspective: @perspective;
+  -webkit-perspective: @perspective;
+  -moz-perspective: @perspective;
+}
+
+.m-perspective-origin(@perspective) {
+  perspective-origin: @perspective;
+  -webkit-perspective-origin: @perspective;
+  -moz-perspective-origin: @perspective;
+}
+
+.m-transform-origin(@origin) {
+  transform-origin: @origin;
+  -webkit-transform-origin: @origin;
+  -moz-transform-origin: @origin;
+  -ms-transform-origin: @origin; // IE9 only
+}
+
+
+// Appearance
+.m-appearance(@appearance) {
+  appearance: @appearance;
+  -webkit-appearance: @appearance;
+  -moz-appearance: @appearance;
+}
+
+
+// Retina images
+
+.m-retina-img(@file-1x; @file-2x; @width-1x; @height-1x) {
+  background-image: url("@{file-1x}");
+  @media only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (min--moz-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min-device-pixel-ratio: 2), only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx) {
+    background-image: url("@{file-2x}");
+    background-size: @width-1x @height-1x;
+  }
+}

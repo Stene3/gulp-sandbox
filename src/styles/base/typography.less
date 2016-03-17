@@ -1,0 +1,83 @@
+// Typography
+
+button,
+html,
+input,
+select,
+textarea {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  font-size: @font-size-base;
+}
+
+// Headers
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: @headings-font-family;
+  font-weight: @headings-font-weight;
+  line-height: @headings-line-height;
+  color: @headings-color;
+}
+
+h1 {
+  font-size: @font-size-h1;
+}
+
+h2 {
+  font-size: @font-size-h2;
+}
+
+h3 {
+  font-size: @font-size-h3;
+}
+
+h4 {
+  font-size: @font-size-h4;
+}
+
+h5 {
+  font-size: @font-size-h5;
+}
+
+h6 {
+  font-size: @font-size-h6;
+}
+
+// Bold
+
+b, strong {
+  font-weight: @font-weight-bold;
+}
+
+// Links
+
+a {
+  color: @color-base;
+
+  &:hover {
+    color: darken(@color-base, 10%);
+  }
+}
+
+// Horizontal Rule
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px @color-base solid;
+  margin: 2em 0;
+  padding: 0;
+}
+
+// Smaller Screens
+
+@media @small {
+
+  body {
+    font-size: 16px;
+  }
+
+}
